@@ -376,7 +376,7 @@ int main(int argc, char ** argv)
         FILE * fptr;	
 	fptr = 	fopen(outputFile, "w");
 	fclose(fptr);
-	//GenerateRandomNumbers(numElem);
+
 	numElem = countLinesInInputFile(inputFile); // first iteration to find the count of numbers
 
 	printf("Start Method1 binary tree algorithm\n");
@@ -385,7 +385,9 @@ int main(int argc, char ** argv)
 	setitimer(ITIMER_REAL, &myTime, NULL);
 	MethodOne(numElem,2); //method 1;
 	method1Summation = GetBinZero();
+	printf("Sum from  Method1=%d\n", method1Summation);
 	getitimer(ITIMER_REAL, &method1Time);
+
 	printf("Start Method2\n");
 	int binSize = ceil(numElem/(log10(numElem)/log10(2)));
 	ResetNumbers(inputFile, numElem);
