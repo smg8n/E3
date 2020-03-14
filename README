@@ -15,7 +15,8 @@ To generate test data into a file use below command (it will generate in input.d
 
 #To run it simply type: ./master input.data
 
-If no arguments provided, it will it will compute 64 random array values.
+If no arguments provided, it will print
+usage master <input file> .
 Version Control
 
 For Version Control i have used github.
