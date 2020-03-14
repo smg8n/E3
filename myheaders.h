@@ -15,34 +15,13 @@
 #include <pthread.h>
 #include <fcntl.h>
 #include <math.h>	
-	void GenerateRandomNumbers(int);
-	void PerformSummation();
-	void PrintSharedInt();
-	int ReadInputFile();
-	int GetInputPlaceInSharedMem(int);
-	int GetSharedIDFromFile();
-	char * GetSharedKey();
-	int GetSharedInt();
-	char * GetSharedInputFile();
-	void GenerateRandomNumbers(int);
-	int ReadInputFile();	
-	int GetInputPlaceInSharedMem(int);
-	void ResetNumbers(int);
-	void MethodOne(int, int);
-	void MethodTwo(int, int);
-	void RelaxTheCells();
-	void PrintArray();
-	int GetBinZero();
-	void SetSharedID(int);
-	int ReadArgument(char*);
-	void UpdateTime();	
-	void CatchSignal(int);
+
 	pid_t pids[20];
 	sem_t * mutex;
 	int sharedID;
 	int * arr;
 	#define NOTIMETEST 0
-	const char inputFile[] = "./InputNumberFile.txt";
+//	const char inputFile[] = "./InputNumberFile.txt";
 	const char sharedKey[] = "./master.c";
 	const char outputFile[] = "./adder_log";
 	const char semaphoreName[] = "semSignal";

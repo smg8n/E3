@@ -3,6 +3,40 @@
 void waitRandom();
 void writeFile();
 
+
+int GetSharedIDFromFile()
+{
+	FILE * fptr;
+	int num = 0;
+	fptr = fopen(sharedIDFile, "r");
+	fscanf(fptr,"%d", &num);
+	fclose(fptr);
+	return num;
+}
+void writeFile(int size, int index, int total)
+{
+	FILE * fptr;
+	if((fptr = fopen(outputFile, "ab+"))== NULL)
+	{
+		perror("file problems\n");
+		exit(1);
+	}	
+	else
+	{
+		fprintf(fptr, "Pid %d Index %d Size %d \n", getpid(), index, size);
+	}
+	fclose(fptr);
+
+}
+
+void waitRandom()
+{
+	srand(time(0));
+	int sleepTime = 0;
+	sleepTime = rand() % 4;
+	sleep(sleepTime);
+}
+
 int main(int argc, char ** argv)
 {
 	
@@ -57,36 +91,3 @@ int main(int argc, char ** argv)
 	sem_close(mutex);	
 	return 0;
 }
-int GetSharedIDFromFile()
-{
-	FILE * fptr;
-	int num = 0;
-	fptr = fopen(sharedIDFile, "r");
-	fscanf(fptr,"%d", &num);
-	fclose(fptr);
-	return num;
-}
-void writeFile(int size, int index, int total)
-{
-	FILE * fptr;
-	if((fptr = fopen(outputFile, "ab+"))== NULL)
-	{
-		perror("file problems\n");
-		exit(1);
-	}	
-	else
-	{
-		fprintf(fptr, "Pid %d Index %d Size %d \n", getpid(), index, size);
-	}
-	fclose(fptr);
-
-}
-
-void waitRandom()
-{
-	srand(time(0));
-	int sleepTime = 0;
-	sleepTime = rand() % 4;
-	sleep(sleepTime);
-}
-
