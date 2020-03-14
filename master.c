@@ -92,7 +92,7 @@ void MethodOne(int size,int binSize)
 	char ** argToPass = (char**)malloc(sizeof(char *) * 2);
 
 	for(int i = 0; i < 2; i++)
-		argToPass[i] = (char*)malloc(sizeof(int) * 8);
+		argToPass[i] = (char*)malloc(sizeof(int) * 16);
 
 
 	do
@@ -109,31 +109,24 @@ void MethodOne(int size,int binSize)
 				}
 				else if(pid == 0)
 				{
-       		 		        if(tempSize > binSize)
-		                        {
-       	                                	anotherTemp = binSize;
-	                                }
-	                                else
-	                                	anotherTemp = tempSize;
-					char * st;
-					st = (char*)malloc(sizeof(char) * 8);
+	        anotherTemp = tempSize;
+       	  if(tempSize > binSize)
+       	     	anotherTemp = binSize;
+					char st[16];
 					sprintf(st, "%d", (bins *binSize));
 					strcpy(argToPass[0], st);
 					sprintf(st, "%d", anotherTemp);
 					strcpy(argToPass[1], st);
 					argToPass[2] = NULL;
+          fprintf(stderr, "Exec PID=%d xx=%s yy=%s\n", getpid(), argToPass[0], argToPass[1]);
 					intExec = execv("bin_adder",argToPass);
-					printf("Exec %d\n", intExec);
-					free(st);
-					exit(0);
-	
 				}
 				else if(pid > 0)
 				{
 					aliveChilds++;
 					pids[bins] = pid;
-		 	                bins++;
-		                	tempSize = tempSize - binSize;
+		 	    bins++;
+		      tempSize = tempSize - binSize;
 				}
 			}
 			for(int k = 0; k < aliveChilds; k++)	

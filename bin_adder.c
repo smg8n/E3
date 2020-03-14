@@ -60,32 +60,17 @@ int main(int argc, char ** argv)
 
 	for(int i = 0; i < 5; i++)
 	{
-		#ifdef NOTIMETEST
 		
 		waitRandom();
-		arr = (int*)shmat(sharedID, NULL, 0);
 		fprintf(stderr, "Pid %d is requesting to enter critical section at clock %ld seconds and %ld micro seconds  \n", getpid(), arr[0],arr[1]);
-		shmdt(arr);
-		#endif
-
-		sem_wait(mutex);
+		if (sem_wait(mutex) == 0) {
+		  sleep(1);
+		  writeFile(size, index, total);
+		  sleep(1);
+		  sem_post(mutex);
+                  break;
+                }
 		
-		#ifdef NOTIMETEST
-		sleep(1);
-		arr = (int*)shmat(sharedID, NULL, 0);
-		fprintf(stderr, "Pid %d is in critical section at clock %ld seconds and %ld micro seconds  \n", getpid(), arr[0],arr[1]);
-		shmdt(arr);
-		#endif
-		
-		writeFile(size, index, total);
-		
-		#ifdef NOTIMETEST
-		arr = (int*)shmat(sharedID, NULL, 0);
-		fprintf(stderr, "Pid %d is exiting critical section at clock %ld seconds and %ld micro seconds  \n", getpid(), arr[0], arr[1]);
-		shmdt(arr);
-		#endif
-		
-		sem_post(mutex);
 	}
 	
 	sem_close(mutex);	
