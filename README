@@ -1,0 +1,22 @@
+# merugu.3
+#INTRODUCTION
+
+The goal of this homework is to become familiar with semaphores in the Unix operating system. In addition, you will
+implement a concept, provide it as a statically linked library, and use it to solve the following problem.
+
+#COMPILATION
+To compile, open a new CLI window, change the directory nesting your module. Type:
+
+    make
+
+#EXECUTION
+Find the executable named oss, located inside that directory in which you compiled the module. 
+
+#To run it simply type: ./master
+
+If no arguments provided, it will it will compute 64 random array values.
+Version Control
+
+For Version Control i have used github.
+
+README.txt Displaying README.txt.
