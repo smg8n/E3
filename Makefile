@@ -15,6 +15,9 @@ $(TARGET1): $(OBJS1)
 $(TARGET): $(OBJS)
 	$(CC)-o $@ $(OBJS) -lpthread -lm
 
+genRandomData: $(genRandomData.o)
+
+	$(CC)-o $@ genRandomData.o
 .c.o:
 	$(CC) $(CFLAGS) -c $<
 
