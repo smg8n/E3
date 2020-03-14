@@ -10,9 +10,10 @@ To compile, open a new CLI window, change the directory nesting your module. Typ
     make
 
 #EXECUTION
-Find the executable named oss, located inside that directory in which you compiled the module. 
+To generate test data into a file use below command (it will generate in input.data 64 numbers).
+./genRandomData input.data 64
 
-#To run it simply type: ./master
+#To run it simply type: ./master input.data
 
 If no arguments provided, it will it will compute 64 random array values.
 Version Control
