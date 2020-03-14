@@ -119,7 +119,7 @@ void MethodOne(int size,int binSize)
 					strcpy(argToPass[1], st);
 					argToPass[2] = NULL;
           fprintf(stderr, "Exec PID=%d xx=%s yy=%s\n", getpid(), argToPass[0], argToPass[1]);
-					intExec = execv("bin_adder",argToPass);
+					intExec = execv("./bin_adder",argToPass);
 				}
 				else if(pid > 0)
 				{
@@ -286,7 +286,10 @@ void SetSharedID(int num)
 	fclose(fptr);
 }
 
-void ResetNumbers(const char* inputFile, int num)
+/**
+ * read numbers from input file into shared memory again so method2 can work on them
+ */
+void ResetNumbersInShareMemory(const char* inputFile, int num)
 {
 
 	int intVar = 0;
@@ -383,7 +386,7 @@ int main(int argc, char ** argv)
 
 	printf("Start Method2\n");
 	int binSize = ceil(numElem/(log10(numElem)/log10(2)));
-	ResetNumbers(inputFile, numElem);
+	ResetNumbersInShareMemory(inputFile, numElem);
 	MethodTwo(numElem, binSize);
 	method2Summation = GetBinZero();
 	getitimer(ITIMER_REAL, &method2Time);
