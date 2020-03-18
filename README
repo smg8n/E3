@@ -1,24 +1,31 @@
-# merugu.3
-#INTRODUCTION
+INTRODUCTION
+------------
+The goal of this homework is to become familiar with semaphores in the Unix operating system. 
 
-The goal of this homework is to become familiar with semaphores in the Unix operating system. In addition, you will
-implement a concept, provide it as a statically linked library, and use it to solve the following problem.
+COMPILATION
+-----------
+To compile, open a new CLI window, change the 
+directory nesting your module. Type:
 
-#COMPILATION
-To compile, open a new CLI window, change the directory nesting your module. Type:
+  make
 
-    make
 
-#EXECUTION
-To generate test data into a file use below command (it will generate in input.data 64 numbers).
-./genRandomData input.data 64
+EXECUTION
+---------
+To generate test data into a file use below command (it will generate 64 numbers in input.data ):
+    ./genRandomData input.data 64
 
-#To run it simply type: ./master input.data
+To run it simply type: ./master input.data
 
-If no arguments provided, it will print
-usage master <input file> .
+If no arguments are provided, it will print
+  usage master <input file> 
+  
+To run command line arguments:
+  ./master [-h] 
+ 
+  - h Print a help message and exit.											
+
 Version Control
-
+----------------------
 For Version Control i have used github.
 
-README.txt Displaying README.txt.
