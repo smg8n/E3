@@ -2,12 +2,17 @@ CC = gcc
 CFLAGS = -g -w
 TARGET = master
 TARGET1 = bin_adder
+TARGET2 = genRandomData
 OBJS = master.o
 OBJS1 = bin_adder.o
+OBJS2 = genRandomData.o
 LOG = adder_log
 .SUFFIXES: .c .o
 
-all : $(TARGET) $(TARGET1)
+all : $(TARGET) $(TARGET1) $(TARGET2)
+
+$(TARGET2): $(OBJS2)
+	$(CC) -o $@ $(OBJS2) 
 
 $(TARGET1): $(OBJS1)
 	$(CC) -o $@ $(OBJS1) -lpthread
@@ -15,13 +20,10 @@ $(TARGET1): $(OBJS1)
 $(TARGET): $(OBJS)
 	$(CC)-o $@ $(OBJS) -lpthread -lm
 
-genRandomData: $(genRandomData.o)
-
-	$(CC)-o $@ genRandomData.o
 .c.o:
 	$(CC) $(CFLAGS) -c $<
 
 .PHONY: clean
 clean:
-	rm -f *.o *.log *~ *.txt $(LIB) $(TARGET) $(TARGET1) $(LOG) 
+	rm -f *.o *.log *~ *.txt $(LIB) $(TARGET) $(TARGET1) $(TARGET2) $(LOG) 
 
