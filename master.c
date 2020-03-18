@@ -66,6 +66,7 @@ void CatchSignal(int sig)
 	kill(getpid(), SIGKILL);
 	exit(0);		
 }
+
 int GetBinZero()
 {
 	int returnInt = 0;
@@ -93,7 +94,6 @@ void MethodOne(int size,int binSize)
 
 	for(int i = 0; i < 2; i++)
 		argToPass[i] = (char*)malloc(sizeof(int) * 16);
-
 
 	do
 	{
@@ -167,7 +167,6 @@ void MethodOne(int size,int binSize)
 
 void MethodTwo(int size, int binSize)
 {
-
 	int maxAllowed = 20;
 	int aliveChilds = 0;
 	int tempSize = size;
@@ -274,7 +273,6 @@ int GetInputPlaceInSharedMem(const char* inputFile, int num)
 
 void SetSharedID(int num)
 {
-
 	FILE * fptr;
 	if((fptr = fopen(sharedIDFile, "w")) == NULL)
 	{
