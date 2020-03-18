@@ -1,5 +1,5 @@
 CC = gcc 
-CFLAGS = -g -w
+CFLAGS = -g -w -std=c99
 TARGET = master
 TARGET1 = bin_adder
 TARGET2 = genRandomData
