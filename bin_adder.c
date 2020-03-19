@@ -3,7 +3,6 @@
 void waitRandom();
 void writeFile();
 
-
 int GetSharedIDFromFile()
 {
 	FILE * fptr;
@@ -13,6 +12,7 @@ int GetSharedIDFromFile()
 	fclose(fptr);
 	return num;
 }
+
 void writeFile(int size, int index, int total)
 {
 	FILE * fptr;
@@ -26,7 +26,6 @@ void writeFile(int size, int index, int total)
 		fprintf(fptr, "Pid %d Index %d Size %d \n", getpid(), index, size);
 	}
 	fclose(fptr);
-
 }
 
 void waitRandom()
@@ -39,7 +38,6 @@ void waitRandom()
 
 int main(int argc, char ** argv)
 {
-	
 	int index = 0;
 	int size = 0;
 	sscanf(argv[0], "%d", &index);
@@ -59,8 +57,7 @@ int main(int argc, char ** argv)
 	sem_t* mutex = sem_open(semaphoreName, O_EXCL, 0666, 63);		
 
 	for(int i = 0; i < 5; i++)
-	{
-		
+	{		
 		waitRandom();
 		fprintf(stderr, "Pid %d is requesting to enter critical section at clock %ld seconds and %ld micro seconds  \n", getpid(), arr[0],arr[1]);
 		if (sem_wait(mutex) == 0) {
