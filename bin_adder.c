@@ -66,8 +66,7 @@ int main(int argc, char ** argv)
 		  sleep(1);
 		  sem_post(mutex);
                   break;
-                }
-		
+                }	
 	}
 	
 	sem_close(mutex);	
