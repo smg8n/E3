@@ -14,21 +14,16 @@
 #include <semaphore.h>
 #include <pthread.h>
 #include <fcntl.h>
-#include <math.h>	
+#include <math.h>
 
-	pid_t pids[20];
-	sem_t * mutex;
-	int sharedID;
-	int * arr;
-	#define NOTIMETEST 0
-//	const char inputFile[] = "./InputNumberFile.txt";
-	const char sharedKey[] = "./master.c";
-	const char outputFile[] = "./adder_log";
-<<<<<<< HEAD
-	const char semaphoreName[] = "semSignalTwo";
-=======
-	const char semaphoreName[] = "semSignal";
->>>>>>> 13d07dbf06bce51c32b17f0ff7eea1415062d12e
-	const char sharedIDFile[] = "./sharedID.txt";
-	const int sharedInt = 63;
-#endif	
+        pid_t pids[20];
+        sem_t * mutex;
+        int sharedID;
+        int * arr;
+        #define NOTIMETEST 0
+        const char sharedKey[] = "./master.c";
+        const char outputFile[] = "./adder_log";
+        const char semaphoreName[] = "semSignalTwo";
+        const char sharedIDFile[] = "./sharedID.txt";
+        const int sharedInt = 63;
+#endif
