@@ -24,7 +24,11 @@
 //	const char inputFile[] = "./InputNumberFile.txt";
 	const char sharedKey[] = "./master.c";
 	const char outputFile[] = "./adder_log";
+<<<<<<< HEAD
 	const char semaphoreName[] = "semSignalTwo";
+=======
+	const char semaphoreName[] = "semSignal";
+>>>>>>> 13d07dbf06bce51c32b17f0ff7eea1415062d12e
 	const char sharedIDFile[] = "./sharedID.txt";
 	const int sharedInt = 63;
 #endif	

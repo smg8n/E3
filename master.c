@@ -365,7 +365,11 @@ int main(int argc, char ** argv)
 	myTime.it_value.tv_sec = 100;
 	myTime.it_value.tv_usec = 0;
 	myTime.it_interval = myTime.it_value;
+<<<<<<< HEAD
 	mutex = sem_open(semaphoreName, O_CREAT, 0600, 1000);
+=======
+	mutex = sem_open(semaphoreName, O_CREAT|O_EXCL, 0666, 63);
+>>>>>>> 13d07dbf06bce51c32b17f0ff7eea1415062d12e
         FILE * fptr;	
 	fptr = 	fopen(outputFile, "w");
 	fclose(fptr);
@@ -393,7 +397,11 @@ int main(int argc, char ** argv)
 		fprintf(stderr, "Shared memory was not deallocated: remove it manually\n");
 
 	remove(sharedIDFile);
+<<<<<<< HEAD
 	sem_destroy(mutex);
 	sem_unlink(semaphoreName);
+=======
+	sem_destroy(mutex);	
+>>>>>>> 13d07dbf06bce51c32b17f0ff7eea1415062d12e
 	return 0;
 }

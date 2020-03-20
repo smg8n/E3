@@ -24,7 +24,10 @@ void writeFile(int size, int index, int total)
 	else
 	{
 		fprintf(fptr, "Pid %d Index %d Size %d \n", getpid(), index, size);
+<<<<<<< HEAD
 		fprintf(stderr, "From Child: Pid %d Index %d Size %d \n", getpid(), index, size);
+=======
+>>>>>>> 13d07dbf06bce51c32b17f0ff7eea1415062d12e
 	}
 	fclose(fptr);
 }
@@ -54,6 +57,7 @@ int main(int argc, char ** argv)
 	}
 	arr[index + 2] = total;
 
+<<<<<<< HEAD
 	//shmdt(arr);
 	sem_t* mutex = sem_open(semaphoreName, O_CREAT, 0666, 1000);		
 	if(mutex==NULL)
@@ -61,13 +65,23 @@ int main(int argc, char ** argv)
 	  	perror("sem_open()");
 		exit(1);
 	}
+=======
+	shmdt(arr);
+	sem_t* mutex = sem_open(semaphoreName, O_EXCL, 0666, 63);		
+>>>>>>> 13d07dbf06bce51c32b17f0ff7eea1415062d12e
 
 	for(int i = 0; i < 5; i++)
 	{		
 		waitRandom();
+<<<<<<< HEAD
 		if (sem_wait(mutex) == 0) {
 		  sleep(1);
 		  fprintf(stderr, "Pid %d is requesting to enter critical section at clock %d seconds and %d micro seconds  \n", getpid(), arr[0],arr[1]);
+=======
+		fprintf(stderr, "Pid %d is requesting to enter critical section at clock %ld seconds and %ld micro seconds  \n", getpid(), arr[0],arr[1]);
+		if (sem_wait(mutex) == 0) {
+		  sleep(1);
+>>>>>>> 13d07dbf06bce51c32b17f0ff7eea1415062d12e
 		  writeFile(size, index, total);
 		  sleep(1);
 		  sem_post(mutex);
@@ -75,7 +89,11 @@ int main(int argc, char ** argv)
                 }	
 	}
 	
+<<<<<<< HEAD
 	sem_close(mutex);
  	shmdt(arr);	
+=======
+	sem_close(mutex);	
+>>>>>>> 13d07dbf06bce51c32b17f0ff7eea1415062d12e
 	return 0;
 }
