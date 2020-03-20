@@ -61,7 +61,7 @@ int main(int argc, char ** argv)
                 perror("sem_open()");
                 exit(1);
         }
-        shmdt(arr);
+        //shmdt(arr);
 
         for(int i = 0; i < 5; i++)
         {
@@ -77,5 +77,6 @@ int main(int argc, char ** argv)
         }
 
         sem_close(mutex);
+        shmdt(arr);
         return 0;
 }
