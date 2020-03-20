@@ -330,7 +330,6 @@ int countLinesInInputFile(const char* inputFile)
 		count++;
 		ret = fscanf(fptr, "%d", &num);
 	}
-
 	printf("Summation: %d total numbers: %d\n", total, count);
 	fclose(fptr);
 	return count;
