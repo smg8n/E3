@@ -23,9 +23,20 @@ If no arguments are provided, it will print
 To run command line arguments:
   ./master [-h] 
  
-  - h Print a help message and exit.											
+  - h Print a help message and exit.	
+  
+Comparison of two methods:
+---------------------------
+
+Method 1 (n/2 pairs) completed in 23 seconds and 977550 micro seconds
+Method 2 (n/log n groups) completed in 15 seconds and 10239 micro seconds
+
+By comparing these two methods, the difference is nearly 8 seconds and 967311 microseconds.
+So, Method 2 takes less time compared to Method 1.
 
 Version Control
 ----------------------
 For Version Control i have used github.
+/classes/OS/merugu/merugu.3/git_log
+
 
